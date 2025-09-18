@@ -1,0 +1,13 @@
+# Watson shortcuts
+
+# In case to switch to uvx
+#alias watson='uvx --from td-watson watson'
+
+# To install td-watson
+# uv tool install td-watson
+alias wr='watson report --day --current'
+alias switch='watson stop; watson start'
+function personal {
+    watson stop
+    watson start "$@" +personal
+}

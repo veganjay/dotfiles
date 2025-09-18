@@ -1,0 +1,2 @@
+# Black: format to 79 characters, skip string normalization
+alias black='black -l 79 -S'

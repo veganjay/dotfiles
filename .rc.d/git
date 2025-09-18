@@ -1,0 +1,10 @@
+# Manage dotfiles
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+# Find a commit that matches an md5sum for a file 
+githunt() {
+    for commit in $(git log --all --pretty=format:%H -- $1); do
+        echo -n "$commit "
+        git show $commit:$1 | md5sum
+    done | grep $2
+}
