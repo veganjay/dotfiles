@@ -152,3 +152,19 @@ if [ -f ~/.privaterc ]
 then
     . ~/.privaterc
 fi
+
+
+
+# Function to source all readable files in a directory
+source_directory_files() {
+    local dir="$1"
+    if [ -d "$dir" ]; then
+        for file in "$dir"/*; do
+            [ -r "$file" ] && source "$file"
+        done
+    fi
+}
+
+# Source files from rc.d directories
+source_directory_files "$HOME/.rc.d"
+source_directory_files "$HOME/.private.rc.d"
