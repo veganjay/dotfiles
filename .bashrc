@@ -139,7 +139,12 @@ export NVM_DIR="$HOME/.nvm"
 
 # set PATH so it includes user's private bin directories
 export PATH=$HOME/.local/bin:$HOME/bin:$PATH
-. "$HOME/.cargo/env"
+
+# Run the Rust env file if present
+if [ -s $HOME/.cargo/env ]
+then
+    . "$HOME/.cargo/env"
+fi
 
 # Execute localrc
 if [ -f ~/.localrc ]
